@@ -1,335 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Search Console Verification Tag -->
-    <meta name="google-site-verification" content="xFlnSbrQJKJqv2zj4bWNun6iLXQK5XBAklPCrIZ8UqM" />
-    <title>EIND Web Studio | Premium Web Designing Agency</title>
+    <title>Download My App</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Load FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configure Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5', // Indigo 600
+                        secondary: '#10B981', // Emerald 500
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        /* CSS Reset & System Fonts for Ultra-Fast Loading */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            scroll-behavior: smooth;
+        /* Custom floating animation for the app mockup */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
         }
-
-        :root {
-            --bg-dark: #0f172a;
-            --card-bg: #1e293b;
-            --accent-green: #10b981;
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
         }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        /* Navbar Section */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 5%;
-            background-color: rgba(15, 23, 42, 0.9);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid #1e293b;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            color: var(--text-light);
-        }
-
-        .logo span {
-            color: var(--accent-green);
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-green);
-        }
-
-        /* Hero Section */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            min-height: 80vh;
-            align-items: center;
-            padding: 0 5%;
-            gap: 2rem;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-            font-weight: 800;
-        }
-
-        .hero-content h1 span {
-            color: var(--accent-green);
-        }
-
-        .hero-content p {
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-green);
-            color: #000;
-            padding: 0.8rem 2rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.2s, background-color 0.2s;
-            text-align: center;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            background-color: #059669;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--accent-green);
-            color: var(--accent-green);
-        }
-
-        .btn-outline:hover {
-            background-color: rgba(16, 185, 129, 0.1);
-        }
-
-        /* Pure CSS Decorative Matrix (Zero Images Used) */
-        .hero-matrix {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .matrix-box {
-            width: 300px;
-            height: 300px;
-            border: 2px dashed var(--accent-green);
-            border-radius: 12px;
-            position: relative;
-            opacity: 0.4;
-        }
-
-        .matrix-box::before, .matrix-box::after {
-            content: '';
-            position: absolute;
-            background: var(--accent-green);
-            border-radius: 50%;
-        }
-
-        .matrix-box::before {
-            width: 20px;
-            height: 20px;
-            top: -10px;
-            left: 50%;
-        }
-
-        .matrix-box::after {
-            width: 40px;
-            height: 40px;
-            bottom: 20px;
-            right: -20px;
-            opacity: 0.6;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 5%;
-            background-color: #0b0f19;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .section-title span {
-            color: var(--accent-green);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            transition: border-color 0.3s;
-        }
-
-        .card:hover {
-            border-color: var(--accent-green);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 5%;
-            text-align: center;
-        }
-
-        .contact-box {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 12px;
-            border: 1px solid #334155;
-        }
-
-        .contact h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* 100% Responsive Blueprint Framework (For Poco M6 Pro & Realme Pad 2) */
-        @media (max-width: 968px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 4rem;
-                padding-bottom: 4rem;
-            }
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                margin: 0 auto 2rem auto;
-            }
-            .hero-matrix {
-                margin-top: 2rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            header {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            nav a {
-                margin: 0 0.8rem;
-            }
-            .contact-box {
-                padding: 1.5rem;
-            }
-            .contact-buttons {
-                flex-direction: column;
-            }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
 
-    <header>
-        <div class="logo">EIND<span>WebStudio</span></div>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>We Build <span>High-Speed</span> Websites That Grow Business</h1>
-            <p>No heavy codes, no lagging. Just pure, clean performance optimized for every single device screen.</p>
-            <a href="https://wa.me/917061105468?text=Hello%20EIND%20Web%20Studio,%20I%20want%20to%20discuss%20a%20project" class="btn" target="_blank">Get Free Consultation</a>
+    <nav class="fixed w-full z-50 glass-effect shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-3">
+                    <!-- App Logo Placeholder -->
+                    <div class="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/30">
+                        <i class="fa-solid fa-mobile-screen-button text-xl"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-slate-900">Venter App</span>
+                </div>
+                <div>
+                    <a href="#download" class="hidden md:inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-full font-medium transition-all transform hover:scale-105">
+                        <i class="fa-solid fa-download"></i> Get App
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="hero-matrix">
-            <div class="matrix-box"></div>
+    </nav>
+
+    <main class="pt-28 pb-16 lg:pt-40 lg:pb-24 overflow-hidden relative">
+        <!-- Background decoration -->
+        <div class="absolute top-0 left-1/2 w-full -translate-x-1/2 h-full z-0 pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-primary/10 blur-3xl"></div>
+            <div class="absolute bottom-[10%] left-[-10%] w-[600px] h-[600px] rounded-full bg-secondary/10 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+                
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left pt-10 lg:pt-0">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-100 text-primary font-semibold text-sm mb-6 border border-indigo-200">
+                        ✨ Version 1.0.0 is Live
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight mb-6">
+                        Experience the ultimate <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">mobile app</span>.
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0">
+                        Fast, secure, and incredibly easy to use. Download the official APK directly to your device and get started in seconds.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4" id="download">
+                        <!-- Updated href to explicitly point to the current directory and added validation check -->
+                        <a href="./MyWebApp.apk" download="MyWebApp.apk" onclick="checkDownload(event)" class="w-full sm:w-auto flex items-center justify-center gap-3 bg-gradient-to-r from-primary to-indigo-500 hover:from-indigo-600 hover:to-indigo-700 text-white px-8 py-4 rounded-2xl font-bold text-lg shadow-xl shadow-primary/30 transition-all transform hover:-translate-y-1">
+                            <i class="fa-brands fa-android text-2xl"></i>
+                            <div class="text-left">
+                                <div class="text-xs font-medium opacity-80">Download for</div>
+                                <div>Android (APK)</div>
+                            </div>
+                        </a>
+                        
+                        <div class="text-sm text-slate-500 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-halved text-secondary"></i> 100% Safe & Secure
+                        </div>
+                    </div>
+                </div>
+
+                <!-- App Mockup Image -->
+                <div class="w-full lg:w-1/2 flex justify-center mt-12 lg:mt-0 relative">
+                    <div class="relative w-64 h-[500px] md:w-80 md:h-[600px] animate-float">
+                        <!-- Phone Frame -->
+                        <div class="absolute inset-0 bg-slate-900 rounded-[3rem] shadow-2xl border-[8px] border-slate-800 overflow-hidden z-10 flex flex-col">
+                            <!-- Notch -->
+                            <div class="absolute top-0 inset-x-0 h-6 bg-slate-800 rounded-b-3xl w-1/2 mx-auto z-20"></div>
+                            
+                            <!-- Fake App UI -->
+                            <div class="flex-1 bg-slate-50 flex flex-col">
+                                <div class="h-48 bg-gradient-to-br from-primary to-secondary p-6 text-white flex flex-col justify-end rounded-b-3xl">
+                                    <h2 class="text-2xl font-bold">Welcome back!</h2>
+                                    <p class="opacity-80 text-sm">Here is your dashboard</p>
+                                </div>
+                                <div class="p-6 flex-1 flex flex-col gap-4">
+                                    <div class="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center p-4 gap-4">
+                                        <div class="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center text-primary"><i class="fa-solid fa-chart-pie"></i></div>
+                                        <div class="flex-1">
+                                            <div class="h-4 bg-slate-200 rounded w-3/4 mb-2"></div>
+                                            <div class="h-3 bg-slate-100 rounded w-1/2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="h-24 bg-white rounded-2xl shadow-sm border border-slate-100 flex items-center p-4 gap-4">
+                                        <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-secondary"><i class="fa-solid fa-bolt"></i></div>
+                                        <div class="flex-1">
+                                            <div class="h-4 bg-slate-200 rounded w-2/3 mb-2"></div>
+                                            <div class="h-3 bg-slate-100 rounded w-4/5"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Background glow behind phone -->
+                        <div class="absolute inset-0 bg-primary/20 blur-2xl rounded-full scale-90 z-0"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <section class="py-20 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">How to Install the APK</h2>
+                <p class="text-slate-600 text-lg">Since you are downloading the app directly from our website instead of the Play Store, follow these three simple steps to install it.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl font-bold shadow-sm mb-6 border border-slate-100">1</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Download the File</h3>
+                    <p class="text-slate-600">Tap the download button above. The browser will download an `.apk` file to your device.</p>
+                    <i class="fa-solid fa-download absolute -bottom-6 -right-6 text-9xl text-slate-200 group-hover:text-indigo-100 transition-colors z-0 opacity-50"></i>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl font-bold shadow-sm mb-6 border border-slate-100">2</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Enable Unknown Sources</h3>
+                    <p class="text-slate-600">Go to your phone's <strong>Settings > Security</strong> and toggle on "Install from Unknown Sources" or "Allow from this source".</p>
+                    <i class="fa-solid fa-gear absolute -bottom-6 -right-6 text-9xl text-slate-200 group-hover:text-indigo-100 transition-colors z-0 opacity-50"></i>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 relative overflow-hidden group hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary text-2xl font-bold shadow-sm mb-6 border border-slate-100">3</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Install & Open</h3>
+                    <p class="text-slate-600">Open your File Manager, tap on the downloaded APK file, click "Install", and enjoy the app!</p>
+                    <i class="fa-solid fa-circle-check absolute -bottom-6 -right-6 text-9xl text-slate-200 group-hover:text-emerald-100 transition-colors z-0 opacity-50"></i>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="services" class="services">
-        <h2 class="section-title">Our <span>Services</span></h2>
-        <div class="services-grid">
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Super-Fast Speed</h3>
-                <p>We write clean and highly optimized local code so your client's website loads within milliseconds.</p>
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-slate-900 mb-4">Why you'll love it</h2>
             </div>
-            <div class="card">
-                <div class="card-icon">📱</div>
-                <h3>100% Responsive</h3>
-                <p>Perfect pixel layouts tested strictly across mobile devices, tablets, and desktop viewports.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🎯</div>
-                <h3>SEO Friendly</h3>
-                <p>Structured semantic HTML tags ensuring your business ranks effortlessly on Google Search layout.</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-primary mb-4 text-xl">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Lightning Fast</h4>
+                    <p class="text-slate-500 text-sm">Optimized for speed and minimal battery consumption.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-secondary mb-4 text-xl">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Secure Design</h4>
+                    <p class="text-slate-500 text-sm">Your data never leaves your device without your permission.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500 mb-4 text-xl">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Beautiful UI</h4>
+                    <p class="text-slate-500 text-sm">A clean, modern interface that is a joy to navigate.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-500 mb-4 text-xl">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 mb-2">Dark Mode</h4>
+                    <p class="text-slate-500 text-sm">Easy on the eyes, seamlessly matching your system theme.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="contact-box">
-            <h2>Let's Build Together</h2>
-            <p>Have a project in mind? Drop us a line and let's get your business online for a free initial setup.</p>
-            <div class="contact-buttons">
-                <a href="https://wa.me/917061105468?text=Hello%20EIND%20Web%20Studio,%20I%20want%20to%20discuss%20a%20project" class="btn" target="_blank">Connect via WhatsApp</a>
-                <a href="mailto:kumaranshal481@gmail.com" class="btn btn-outline">Email Our Team</a>
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <span class="font-bold text-lg tracking-tight">Venter App</span>
+            </div>
+            <div class="text-sm">
+                &copy; <span id="year"></span> Venter App. All rights reserved.
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-discord text-xl"></i></a>
             </div>
         </div>
-    </section>
+    </footer>
 
+    <!-- Error Modal for Missing File -->
+    <div id="errorModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm px-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center transform scale-95 transition-transform duration-300" id="errorModalContent">
+            <div class="w-20 h-20 bg-rose-100 rounded-full flex items-center justify-center text-rose-500 mx-auto mb-6 text-4xl">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">File Not Found</h3>
+            <p class="text-slate-600 mb-8">
+                The file <strong>MyWebApp.apk</strong> is missing. Please ensure you have uploaded it to the exact same folder as this webpage.
+            </p>
+            <button onclick="closeModal()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-medium py-3.5 rounded-xl transition-colors">
+                I Understand
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Check if file exists before downloading
+        async function checkDownload(event) {
+            const link = event.currentTarget;
+            const url = link.getAttribute('href');
+            
+            try {
+                // Try to fetch only the headers to see if the file exists (avoiding full download in JS)
+                const response = await fetch(url, { method: 'HEAD' });
+                
+                if (!response.ok) {
+                    // File not found (404) or other error
+                    event.preventDefault(); // Stop the broken download
+                    showModal();
+                }
+                // If response is OK, let the default download happen
+            } catch (error) {
+                // If fetch fails due to CORS or local file restrictions, let the browser handle the click natively
+                console.warn("Could not pre-verify file existence. Allowing default download behavior.", error);
+            }
+        }
+
+        function showModal() {
+            const modal = document.getElementById('errorModal');
+            const content = document.getElementById('errorModalContent');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Small delay to trigger animation
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                content.classList.remove('scale-95');
+                content.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('errorModal');
+            const content = document.getElementById('errorModalContent');
+            
+            modal.classList.add('opacity-0');
+            content.classList.remove('scale-100');
+            content.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+    </script>
 </body>
 </html>
+
